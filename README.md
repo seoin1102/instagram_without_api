@@ -1,68 +1,47 @@
 # instagram_without_api
 
-Install
+Install 
+-------
 To install instagram-scraper:
-
+```bash
 $ pip install instagram-scraper
-To update instagram-scraper:
+```
 
-$ pip install instagram-scraper --upgrade
-Alternatively, you can clone the project and run the following command to install: Make sure you cd into the instagram-scraper-master folder before performing the command below.
+Usage 
+-----
 
-$ python setup.py install
-Usage
+### Run 'list_update.py'
+
+If you want to update the list, type '1'.
+Input'2' if you want to register a new user.
+
+-Update list -
+Select '1' and enter the number of the list you want to update.
+For example, if you enter '0', the user in the first list to the last list will be included in 'ig_users.txt'.
+
+- New user registration -
+Select '2' and enter the id of the user you want to register to enter it in 'ig_users.txt'.
+
+### Run 'instagram-scraper.py'
+
 To scrape a user's media:
+```bash
+$ instagram-scraper -u <your username> -p <your password> -f ig_users.txt --comments                 
+```
+*NOTE: To scrape a private user's media you must be an approved follower.*
 
-$ instagram-scraper <username> -u <your username> -p <your password>             
-NOTE: To scrape a private user's media you must be an approved follower.
+*By default, downloaded media will be placed in `<current working directory>/<username>`.*
 
-By default, downloaded media will be placed in <current working directory>/<username>.
 
-Providing username and password is optional, if not supplied the scraper runs as a guest. Note: In this case all private user's media will be unavailable. All user's stories and high resolution profile pictures will also be unavailable.
+Providing username and password is optional, if not supplied the scraper runs as a guest. 
+*Note: In this case all private user's media will be unavailable. All user's stories and high resolution profile pictures will also be unavailable.*
 
-To scrape a hashtag for media:
 
-$ instagram-scraper <hashtag without #> --tag          
-It may be useful to specify the --maximum <#> argument to limit the total number of items to scrape when scraping by hashtag.
-
-To specify multiple users, pass a delimited list of users:
-
-$ instagram-scraper username1,username2,username3           
-You can also supply a file containing a list of usernames:
-
-$ instagram-scraper -f ig_users.txt           
-# ig_users.txt
-
-username1
-username2
-username3
-
-# and so on...
-The usernames may be separated by newlines, commas, semicolons, or whitespace.
-
-You can also supply a file containing a list of location ids:
-
-$ instagram-scraper --tag <your_tag_here> --include-location --filter_location_file my_locations.txt           
-# my_locations.txt
-[some_reagion1]
-location_id1
-location_id2
-
-[some_region2]
-location_id3
-location_id4
-
-# and so on...
-The resulting directory structure will be:
-
-your_tag
-├── some_reagion1
-│   └── images_here
-└── some_reagion2
-    └── images_here
-The locations can only be separated by newlines and spaces.
 
 OPTIONS
+-------
+
+```
 --help -h               Show help message and exit.
 
 --login-user  -u        Instagram login user.
@@ -151,19 +130,7 @@ OPTIONS
 
                         If the template is invalid, it will revert to the default.
                         Does not work with --tag and --location.
-Develop
-Clone the repo and create a virtualenv
+```
 
-$ virtualenv venv
-$ source venv/bin/activate
-$ python setup.py develop
-Running Tests
-$ python setup.py test
-
-# or just 
-
-$ nosetests
-Contributing
-Check the open issues or open a new issue to start a discussion around your feature idea or the bug you found
-Fork the repository, make your changes, and add yourself to AUTHORS.md
-Send a pull request
+### Run 'extract_json.py'
+When the file is run, the json files of the users stored in 'ig_users.txt' are sent to 'rest api'.
