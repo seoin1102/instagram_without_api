@@ -12,11 +12,13 @@ Usage
 
 ## 1. Run 'list_update.py'
 If you want to update the list, type '1'.
+
 Input'2' if you want to register a new user.
 
 ### Update list 
 
 Select '1' and enter the number of the list you want to update.
+
 For example, if you enter '0', the user in the first list to the last list will be included in 'ig_users.txt'.
 
 ### New user registration 
@@ -132,10 +134,13 @@ OPTIONS
                         Does not work with --tag and --location.
 ```
 
-*Note: Some users can get 402 errors.
-It is recommended that you enter (A), abort, and delete the user from the 'ig_users.txt' list.
-The deleted user will later use api to scrap and run 'instagram-scraper.py' again.
-If you enter (F), you will continue to attempt to enter without interruption, but your Instagram account may be blocked.
+*Note: Some users can get 402 errors.* 
+
+*It is recommended that you enter (A), abort, and delete the user from the 'ig_users.txt' list.* 
+
+*The deleted user will later use api to scrap and run 'instagram-scraper.py' again.* 
+
+*If you enter (F), you will continue to attempt to enter without interruption, but your Instagram account may be blocked.*
 
 ## 3. Run 'extract_json.py'
 When the file is run, the json files of the users stored in 'ig_users.txt' are sent to 'rest api'.
